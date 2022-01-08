@@ -15,3 +15,18 @@ console.log("getName3", getName3);
 function getName() {
   console.log("Hello world");
 }
+
+// Arrow function and creating function with assignment will be treated as Variable during Memory phase
+
+var getName2 = () => {
+  console.log("Hello world 2");
+};
+
+var getName3 = function () {
+  console.log("Hello world 3");
+};
+
+// As X is not allocated memory and is being accessed here, will get error
+// Reference error -> X is not defined
+
+console.log("different number", x);

@@ -15,3 +15,28 @@ console.log("this.y", this.y);
 
 // console.log("window.x", window.x);
 // console.log("window.y", window.y);
+
+// Re-declaration is not allowed for LET and CONST in same scope
+
+// let y = 10;
+
+let z;
+z = 12;
+console.log(`z`, z);
+
+// CONST - needs to be initialized in same line of declaration
+
+const a = 3;
+// a = 77;
+
+console.log(`a`, a);
+
+// Best practice - avoid using VAR
+// Const & Let should be used and declared on top of code scope to avoid un-necessary errors
+// This way we reduce the time duration of temporal dead zone to zero
+
+var him = 62;
+// let him = 45;
+
+console.log(`him`, him);
+// This returns error as VARIABLE name is already declared

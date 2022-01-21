@@ -53,3 +53,19 @@ let ahij = 21;
 console.log(`ahij OUT`, ahij); // 21
 // This won't give error as ABC is defined both in Script & Block scope respectively and separately
 // Since block scope get deleted, first 31 will print then 21
+
+let aqaz = 25;
+{
+  //   var aqaz = 35; // SyntaxError: Identifier 'aqaz' has already been declared
+  console.log(`aqaz IN`, aqaz);
+}
+console.log(`aqaz OUT`, aqaz); // 25
+// VAR is defined in block scope, during shadowing it tries to work outside Block scope which is wrong as VAR is Function scope
+
+let aiop = 88;
+function checkMe() {
+  var aiop = 99; // This won't return error as VAR is defined in function scope
+  console.log(`aiop IN`, aiop); // 99
+}
+checkMe();
+console.log(`aiop OUT`, aiop); // 88

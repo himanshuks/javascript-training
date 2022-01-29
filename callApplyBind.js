@@ -61,3 +61,16 @@ printNameOutside.call(nameThree, "Mumbai", "Maharashtra");
 printNameOutside.apply(nameThree); // undefined is coming as no SECOND, THIRD argument are provided
 printNameOutside.apply(nameThree, ["Mumbai"]); // undefined is coming as no THIRD argument is provided
 printNameOutside.apply(nameThree, ["Mumbai", "Maharashtra"]);
+
+// BIND - works exactly as CALL method
+// Only difference is that in BIND, we create copy of the function and attach the object to later EXECUTED in the code
+// As we see, CALL gets executed at it's calling place
+// BIND will return the function instead of executing
+
+let bindExample = printNameOutside.bind(nameThree, "Mumbai", "Maharashtra");
+console.log(`bindExample`, bindExample); // As we see, complete function is being displayed
+bindExample();
+
+let bindExample2 = printNameOutside.bind(nameThree, ["Mumbai", "Maharashtra"]);
+bindExample2(); // Name is Rohit Sharma lives in Mumbai,Maharashtra of state undefined
+// As we see, using (,) separated values works with BIND similar to CALL method

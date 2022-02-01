@@ -58,3 +58,18 @@ var res5 = calculate(radiusList, circumference);
 console.log(`Optimized area`, res3);
 console.log(`Optimized diameter`, res4);
 console.log(`Optimized circumference`, res5);
+
+// We can even create this CALCULATE function to be available on all ARRAYs as iterators
+// ARRAY.PROTOTYPE - use to create custom function as array iterators
+
+Array.prototype.findCube = function () {
+  let output = [];
+  for (let i = 0; i < this.length; i++) {
+    output.push(this[i] * this[i] * this[i]);
+  }
+  return output;
+};
+
+const cubeList = [5, 2, 7, 3];
+
+console.log(`Cubes`, cubeList.findCube());

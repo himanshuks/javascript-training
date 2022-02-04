@@ -24,3 +24,24 @@ var p = m(); // executing M returns function N which is stored in P
 console.log(`p`, p);
 
 p(); // when we execute function P, function N which is stored is executed along with lexical data
+
+// Another way of writing -> returning function directly
+function outer() {
+  var c = 10;
+  return function inner() {
+    console.log(`c`, c);
+  };
+}
+var catchFunction = outer();
+catchFunction();
+
+function one() {
+  var d = 100;
+  function two() {
+    console.log(`d`, d);
+  }
+  d = 600; // function TWO is returned along with lexical environment, so variable D points to the reference here whose value is updated to 600 now
+  return two;
+}
+var func1 = one();
+func1(); // 600 -> function is returned but lexical has all the updated values

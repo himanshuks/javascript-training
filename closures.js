@@ -45,3 +45,30 @@ function one() {
 }
 var func1 = one();
 func1(); // 600 -> function is returned but lexical has all the updated values
+
+// Lexical of all parents are passed to return function in closures
+function mostOuter() {
+  var z1 = 333;
+  function outer() {
+    var z2 = 444;
+    function inner() {
+      console.log("z1 and z2", z1, z2);
+    }
+    // return inner;
+    inner();
+  }
+  //   return outer;
+  outer();
+}
+
+// var func2 = mostOuter();
+// func2();
+mostOuter(); // z1 and z2 333 444
+
+// Uses of Closures:
+// - Module design pattern
+// - currying
+// - memoize
+// - maintaining state in async world
+// - setTimeouts
+// - iterators

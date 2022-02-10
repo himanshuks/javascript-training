@@ -19,3 +19,21 @@ x();
 
 // As we see from sequence, all CONSOLE gets printed and timer starts too, but gets executed only when timer got expired
 // If we change timer from 3000 -> 0, then also the setTimeout is called later after all immediate executions are done
+
+function y() {
+  for (var i = 1; i <= 5; i++) {
+    setTimeout(function () {
+      console.log("Value of i", i); // setTimeout closure function points to reference of updated I, so value is 6 here
+    }, i * 1000); // However, I is received in sequential manner due to for loop getting executed
+  }
+}
+y();
+
+// Output ->
+// Value of i 6
+// Value of i 6
+// Value of i 6
+// Value of i 6
+// Value of i 6
+
+// Flow is like -> FOR loop has created 5 timers to be executed after (1 to 5) seconds, after creating all timers, I==6 because I is VAR having GLOBAL scope and control goes to next line. After 1 second, first timer gets executed, it prints 6 coz I==6. Similarly, after 2, 3, 4 and 5 seconds, same result gets printed

@@ -37,3 +37,21 @@ y();
 // Value of i 6
 
 // Flow is like -> FOR loop has created 5 timers to be executed after (1 to 5) seconds, after creating all timers, I==6 because I is VAR having GLOBAL scope and control goes to next line. After 1 second, first timer gets executed, it prints 6 coz I==6. Similarly, after 2, 3, 4 and 5 seconds, same result gets printed
+
+function z() {
+  for (let j = 1; j <= 5; j++) {
+    setTimeout(function () {
+      console.log("Value of j", j);
+    }, j * 1000);
+  }
+}
+z();
+
+// Output ->
+// Value of j 1
+// Value of j 2
+// Value of j 3
+// Value of j 4
+// Value of j 5
+
+// Flow is like -> FOR loop has created 5 timers to be executed after (1 to 5) seconds, while creating all timers, value of I increases by 1 as LET is used which has Block scope and control goes to next line. After 1 second, first timer gets executed, it prints 1 coz I==1 for that closure function. Similarly, after 2, 3, 4 and 5 seconds, timer gets executed and different value gets printed because LET creates separate values for each closure function

@@ -14,3 +14,19 @@ function binary(x) {
 
 console.log(`Double array`, arr.map(double));
 console.log(`Binary array`, arr.map(binary));
+
+// We can put the function definition in MAP too
+
+console.log(
+  `Triple array`,
+  arr.map(function triple(x) {
+    return x * 3;
+  })
+);
+
+// We can use arrow function in MAP too
+
+console.log(
+  `Cube array`,
+  arr.map((x) => x * x * x)
+);

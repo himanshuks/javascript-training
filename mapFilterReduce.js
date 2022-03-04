@@ -30,3 +30,16 @@ console.log(
   `Cube array`,
   arr.map((x) => x * x * x)
 );
+
+// FILTER function is used to filter out items from an array
+// We can use Arrow function and Function definition inside FILTER too
+
+function isEven(x) {
+  return x % 2 === 0;
+}
+
+console.log(`Even elements in array`, arr.filter(isEven));
+console.log(
+  `Elements greater than 5 in array`,
+  arr.filter((x) => x > 5)
+);

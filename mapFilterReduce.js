@@ -43,3 +43,16 @@ console.log(
   `Elements greater than 5 in array`,
   arr.filter((x) => x > 5)
 );
+
+// REDUCE function is used to get single element/ value from an array
+// Used mainly for finding sum, max, min
+
+function findSum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum;
+}
+
+console.log(`Sum of elements in array`, findSum(arr));

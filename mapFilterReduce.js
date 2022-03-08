@@ -56,3 +56,27 @@ function findSum(arr) {
 }
 
 console.log(`Sum of elements in array`, findSum(arr));
+
+// Reduce take 2 parameters - Function and initial value of result
+// Function itself takes 2 parameters - ACC and CURR
+
+// ACC - accumulator which hold RESULT of previous items traversed in array
+// CURR - denotes the current item in array
+
+const out1 = arr.reduce(function (acc, curr) {
+  acc = acc + curr; // acc will hold sum of all values traversed till now as we are summing it up
+  return acc; // curr will be the current element
+}, 0);
+
+console.log(`Sum of elements in array using REDUCE`, out1);
+
+const out2 = arr.reduce(function (acc, curr) {
+  if (curr > acc) {
+    // check if CURR is greater than value present in ACC
+    // here we are just replacing a single value
+    acc = curr;
+  }
+  return acc;
+}, 0);
+
+console.log(`Maximum element in array using REDUCE`, out2);

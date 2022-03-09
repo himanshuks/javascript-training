@@ -80,3 +80,49 @@ const out2 = arr.reduce(function (acc, curr) {
 }, 0);
 
 console.log(`Maximum element in array using REDUCE`, out2);
+
+// Below are more real life examples for MAP, FILTER and REDUCE
+
+const people = [
+  {
+    firstName: "Himanshu",
+    lastName: "Singh",
+    age: 27,
+  },
+  {
+    firstName: "Barak",
+    lastName: "Obama",
+    age: 58,
+  },
+  {
+    firstName: "Sheldon",
+    lastName: "Cooper",
+    age: 35,
+  },
+  {
+    firstName: "Pawn",
+    lastName: "Stars",
+    age: 65,
+  },
+  {
+    firstName: "Storage",
+    lastName: "Wars",
+    age: 65,
+  },
+];
+
+const outName = people.map((x) => x.firstName + " " + x.lastName);
+console.log(`outName`, outName);
+
+const outEqualAge = people.reduce(function (acc, curr) {
+  // Traverse each row in object and check if AGE is present in ACC object
+  // If PRESENT, increase by 1, else ASSIGN with 1
+  if (acc[curr.age]) {
+    acc[curr.age] = acc[curr.age] + 1;
+  } else {
+    acc[curr.age] = 1;
+  }
+  return acc;
+}, {});
+
+console.log(`outEqualAge`, outEqualAge);

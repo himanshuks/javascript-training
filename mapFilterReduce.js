@@ -126,3 +126,16 @@ const outEqualAge = people.reduce(function (acc, curr) {
 }, {});
 
 console.log(`outEqualAge`, outEqualAge);
+
+// We can do chaining on these High Order Functions which will get executed on the output of the first function
+const outAgeLess = people.filter((x) => x.age < 65).map((x) => x.firstName);
+console.log(`outAgeLess`, outAgeLess);
+
+const outLessAgeReduce = people.reduce(function (acc, curr) {
+  if (curr.age < 65) {
+    acc.push(curr.firstName);
+  }
+  return acc;
+}, []);
+
+console.log(`outLessAgeReduce`, outLessAgeReduce);
